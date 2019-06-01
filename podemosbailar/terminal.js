@@ -55,37 +55,39 @@ function botondown(id, src) {
 
 
     switch (id) {
-
+        case "l1":
+                window.open("http://www.blackhatorg.com", "_blank"); 
+            break;
         case "btn1_2":
             sonar("04");
             $("#screen1").slideUp(800);
             $("#screen2").slideDown(800);
             break;
-            case "btn5_1":
-                sonar("04");
-                $("#btn5_2").slideToggle(400);
-               
-                break;
+        case "btn5_1":
+            sonar("04");
+            $("#btn5_2").slideToggle(400);
+
+            break;
         case "btn5_2":
             sonar("04");
             $("#screen_eclipse").slideDown(800);
             $("#screen5").slideUp(800);
             break;
-            case "btn5_3":
-                sonar("04");
-                $("#screen_bitacora").slideDown(800);
-                $("#screen5").slideUp(800);
-                break;
-                case "regre_bitacora":
-                    sonar("04");
-                    $("#screen5").slideDown(800);
-                    $("#screen_bitacora").slideUp(800);
-                    break;
-            case "regre_eclipse":
-                sonar("04");
-                $("#screen5").slideDown(800);
-                $("#screen_eclipse").slideUp(800);
-                break;
+        case "btn5_3":
+            sonar("04");
+            $("#screen_bitacora").slideDown(800);
+            $("#screen5").slideUp(800);
+            break;
+        case "regre_bitacora":
+            sonar("04");
+            $("#screen5").slideDown(800);
+            $("#screen_bitacora").slideUp(800);
+            break;
+        case "regre_eclipse":
+            sonar("04");
+            $("#screen5").slideDown(800);
+            $("#screen_eclipse").slideUp(800);
+            break;
         case "btn1_1":
             sonar("04");
             $("#screen1").slideUp(800);
