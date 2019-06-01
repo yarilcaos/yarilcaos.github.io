@@ -93,7 +93,7 @@ function botondown(id, src) {
             $("#screen1").slideUp(800);
             $("#screen5").slideDown(800);
             break;
-        case "regre_5":
+        case "regre_reporte":
             sonar("04");
             $("#screen5").slideUp(800);
             $("#screen1").slideDown(800);
@@ -217,7 +217,7 @@ function botondown(id, src) {
             break;
         case "btn3_1": $("#contenido1").slideDown(800); $("#contenido2").slideUp(800); break;
         case "btn3_2": $("#contenido2").slideDown(800); $("#contenido1").slideUp(800); break;
-        case "btn4_1": $("#contenido3").slideDown(800); break;
+        case "btn4_1": $("#contenido30").slideDown(800); break;
 
 
         default:
