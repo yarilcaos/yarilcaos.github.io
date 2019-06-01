@@ -241,7 +241,7 @@ function waveCreator00() {
         wavesurfer00.on('ready', function () {
             wavesurfer00.play();
         });
-        wavesurfer00.load('https://podemosbailar.com/assets/folder9/00.mp3');
+        wavesurfer00.load('assets/folder9/00.mp3');
     }
 }
 function waveCreator01() {
@@ -249,7 +249,7 @@ function waveCreator01() {
         wavesurfer01.empty();
     } else {
         wavesurfer01.on('ready', function () { wavesurfer01.play(); });
-        wavesurfer01.load('https://podemosbailar.com/assets/folder9/01.mp3');
+        wavesurfer01.load('assets/folder9/01.mp3');
     }
 }
 
@@ -258,7 +258,7 @@ function waveCreator02() {
         wavesurfer02.empty();
     } else {
         wavesurfer02.on('ready', function () { wavesurfer02.play(); });
-        wavesurfer02.load('https://podemosbailar.com/assets/folder9/02.mp3');
+        wavesurfer02.load('assets/folder9/02.mp3');
     }
 }
 function waveCreator03() {
@@ -266,7 +266,7 @@ function waveCreator03() {
         wavesurfer03.empty();
     } else {
         wavesurfer03.on('ready', function () { wavesurfer03.play(); });
-        wavesurfer03.load('https://podemosbailar.com/assets/folder9/03.mp3');
+        wavesurfer03.load('assets/folder9/03.mp3');
     }
 }
 function waveCreator04() {
@@ -274,7 +274,7 @@ function waveCreator04() {
         wavesurfer04.empty();
     } else {
         wavesurfer04.on('ready', function () { wavesurfer04.play(); });
-        wavesurfer04.load('httpS://podemosbailar.com/assets/folder9/04.mp3');
+        wavesurfer04.load('assets/folder9/04.mp3');
     }
 }
 function waveCreator05() {
@@ -282,7 +282,7 @@ function waveCreator05() {
         wavesurfer05.empty();
     } else {
         wavesurfer05.on('ready', function () { wavesurfer05.play(); });
-        wavesurfer05.load('httpS://podemosbailar.com/assets/folder9/05.mp3');
+        wavesurfer05.load('assets/folder9/05.mp3');
     }
 }
 function waveCreator06() {
@@ -290,7 +290,7 @@ function waveCreator06() {
         wavesurfer06.empty();
     } else {
         wavesurfer06.on('ready', function () { wavesurfer06.play(); });
-        wavesurfer06.load('httpS://podemosbailar.com/assets/folder9/06.mp3');
+        wavesurfer06.load('assets/folder9/06.mp3');
     }
 }
 
