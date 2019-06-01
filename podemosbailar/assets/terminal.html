@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122485897-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122485897-1');
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="glitch.js"></script>
+</head>
+<style>
+    @font-face {
+        font-family: consola;
+        src: url("assets/munronarrow.ttf");
+    }
+
+    body {
+
+        font-family: consola;
+        background-color: #130000;
+        background-image: url("assets/iconos/grid.png");
+        background-size: 100%;
+        background-repeat: repeat;
+        color: #dc8e04;
+
+    }
+
+    .boton {}
+
+    .btn1 {
+
+        background-image: url("");
+        background-image: url("assets/iconos_index/reporte normal.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        z-index: 100;
+        /* border: solid 1px blue; @overlord0123698745*/
+    }
+
+    .btn1 :hover {
+        background-image: url("assets/iconos_index/boton mouse over.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .botonholder {
+        width: 40%;
+
+    }
+
+    .botonholder img {
+        width: 100%;
+    }
+
+    .botonholderb {
+        width: 80%;
+        z-index: 20;
+
+    }
+
+    .botonholderb img {
+        width: 100%;
+    }
+
+    .archivoscontainer img {
+        width: 100%;
+    }
+</style>
+<script type="text/javascript" src="terminal.js"></script>
+
+<body>
+    <div id="main" align="center">
+        <div id="screen1" align="center">
+            <div id="btn1_1" onmouseover="botonhover('btn1_1','assets/iconos_terminal/reporte mouse over.png')"
+                onmouseout="botonout('btn1_1','assets/iconos_terminal/reporte normal.png')" onmousedown="botondown('btn1_1','assets/iconos_terminal/reporte click.png')"
+                onmouseup="botonout('btn1_1','assets/iconos_terminal/reporte mouse over.png')" class="botonholder">
+                <img id="b" src="assets/iconos_terminal/reporte normal.png">
+            </div>
+            <div id="btn1_2" onmouseover="botonhover('btn1_2','assets/iconos_terminal/data mouse over.png')" onmouseout="botonout('btn1_2','assets/iconos_terminal/data normal.png')"
+                onmousedown="botondown('btn1_2','assets/iconos_terminal/data click.png')" onmouseup="botonout('btn1_2','assets/iconos_terminal/data mouse over.png')"
+                class="botonholder">
+                <img src="assets/iconos_terminal/data normal.png">
+            </div>
+            <!-- <div id="btn1_3" 
+                    onmouseover="botonhover('btn1_3','assets/iconos_terminal/leeme mouse over.png')" 
+                    onmouseout="botonout('btn1_3','assets/iconos_terminal/leeme normal.png')" 
+                    onmousedown="botondown('btn1_3','assets/iconos_terminal/leeme click.png')" 
+                    onmouseup="botonout('btn1_3','assets/iconos_terminal/leeme mouse over.png')" 
+                    class="botonholder">
+                    <img src="assets/iconos_terminal/leeme normal.png">
+                </div> -->
+        </div>
+        <div id="screen2" style="display:none;" align="left">
+            <div class="botonholder">
+                <img src="assets/iconos_terminal/titulo entradas.png">
+            </div>
+            <div id="btn2_1" onmouseover="botonhover('btn2_1','assets/iconos_terminal/entrada 1 mouse over.png')"
+                onmouseout="botonout('btn2_1','assets/iconos_terminal/entrada 1 normal.png')" onmousedown="botondown('btn2_1','assets/iconos_terminal/entrada 1 click.png')"
+                onmouseup="botonout('btn2_1','assets/iconos_terminal/entrada 1 mouse over.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada 1 normal.png">
+            </div>
+            <div id="btn2_2" onmouseover="botonhover('btn2_2','assets/iconos_terminal/entrada 2  mouse over.png')"
+                onmouseout="botonout('btn2_2','assets/iconos_terminal/entrada 2  normal.png')" onmousedown="botondown('btn2_2','assets/iconos_terminal/entrada 2 click.png')"
+                onmouseup="botonout('btn2_2','assets/iconos_terminal/entrada 2  normal.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada 2  normal.png">
+            </div>
+            <div id="btn2_3" onmouseover="botonhover('btn2_3','assets/iconos_terminal/entrada 3 mouse over.png')"
+                onmouseout="botonout('btn2_3','assets/iconos_terminal/entrada 3  normal.png')" onmousedown="botondown('btn2_3','assets/iconos_terminal/entrada 3 click.png')"
+                onmouseup="botonout('btn2_3','assets/iconos_terminal/entrada 3  normal.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada 3  normal.png">
+            </div>
+            <div id="btn2_4" onmouseover="botonhover('btn2_4','assets/iconos_terminal/entrada 4  mouse over.png')"
+                onmouseout="botonout('btn2_4','assets/iconos_terminal/entrada 4 normal.png')" onmousedown="botondown('btn2_4','assets/iconos_terminal/entrada 4 click.png')"
+                onmouseup="botonout('btn2_4','assets/iconos_terminal/entrada 4 normal.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada 4 normal.png">
+            </div>
+            <div id="btn2_5" onmouseover="botonhover('btn2_5','assets/iconos_terminal/entrada 5 mouse over.png')"
+                onmouseout="botonout('btn2_5','assets/iconos_terminal/entrada 5 normal.png')" onmousedown="botondown('btn2_5','assets/iconos_terminal/entrada  5 click.png')"
+                onmouseup="botonout('btn2_5','assets/iconos_terminal/entrada 5 normal.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada 5 normal.png">
+            </div>
+            <div id="btn2_6" onmouseover="botonhover('btn2_6','assets/iconos_terminal/entrada  6 mouse over.png')"
+                onmouseout="botonout('btn2_6','assets/iconos_terminal/entrada  6 normal.png')" onmousedown="botondown('btn2_6','assets/iconos_terminal/entrada  6 click.png')"
+                onmouseup="botonout('btn2_6','assets/iconos_terminal/entrada  6 normal.png')" class="botonholder">
+                <img src="assets/iconos_terminal/entrada  6 normal.png">
+            </div>
+            <div id="btn2_7" onmouseover="botonhover('btn2_7','assets/iconos_terminal/ENTRADA 7 MOUSE OVER.png')"
+                onmouseout="botonout('btn2_7','assets/iconos_terminal/ENTRADA 7 NORMAL.png')" onmousedown="botondown('btn2_7','assets/iconos_terminal/ENTRADA 7 CLICK.png')"
+                onmouseup="botonout('btn2_7','assets/iconos_terminal/ENTRADA 7 NORMAL.png')" class="botonholder">
+                <img src="assets/iconos_terminal/ENTRADA 7 NORMAL.png">
+            </div>
+            <div id="btn2_8" onmouseover="botonhover('btn2_8','assets/iconos_terminal/e8over.png')" onmouseout="botonout('btn2_8','assets/iconos_terminal/e8.png')"
+                onmousedown="botondown('btn2_8','assets/iconos_terminal/e8click.png')" onmouseup="botonout('btn2_8','assets/iconos_terminal/e8.png')"
+                class="botonholder">
+                <img src="assets/iconos_terminal/e8.png">
+            </div>
+            <div id="btn2_9" onmouseover="botonhover('btn2_9','assets/folder9/e9over.png')" onmouseout="botonout('btn2_9','assets/folder9/e9.png')"
+                onmousedown="botondown('btn2_9','assets/folder9/e9click.png')" onmouseup="botonout('btn2_9','assets/folder9/e9.png')"
+                class="botonholder">
+                <img src="assets/folder9/e9.png">
+            </div>
+            <div id="btn2_10" onmouseover="botonhover('btn2_10','assets/folder10/e10over.png')" onmouseout="botonout('btn2_10','assets/folder10/e10.png')"
+                onmousedown="botondown('btn2_10','assets/folder10/e10click.png')" onmouseup="botonout('btn2_10','assets/folder10/e10.png')"
+                class="botonholder">
+                <img src="assets/folder10/e10.png">
+            </div>
+            <div id="btn2_11" onmouseover="botonhover('btn2_11','assets/entrada_11/11over.png')" onmouseout="botonout('btn2_11','assets/entrada_11/11normal.png')"
+                onmousedown="botondown('btn2_11','assets/entrada_11/11click.png')" onmouseup="botonout('btn2_11','assets/entrada_11/11normal.png')"
+                class="botonholder">
+                <img src="assets/entrada_11/11normal.png">
+            </div>
+            <div id="regre_1" onmouseover="botonhover('regre_1','assets/iconos_terminal/back mouse over.png')"
+                onmouseout="botonout('regre_1','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_1','assets/iconos_terminal/back click.png')"
+                onmouseup="botonout('regre_1','assets/iconos_terminal/back normal.png')" class="botonholder" style="width: 15% !important;">
+                <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+            </div>
+        </div>
+        <div id="screen_10" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 20%;">
+                    <img style="width: 180%" src="assets/folder10/titulo.png">
+                    <div class="botonholderb">
+
+                    </div>
+                    <div id="btn10_1" onmouseover="botonhover('btn10_1','assets/folder10/comover.png')" onmouseout="botonout('btn10_1','assets/folder10/com.png')"
+                        onmousedown="botondown('btn10_1','assets/folder10/com.png')" onmouseup="botonout('btn10_1','assets/folder10/com.png')"
+                        class="botonholderb">
+                        <img src="assets/folder10/com.png">
+                    </div>
+                    <div id="btn10_2" onmouseover="botonhover('btn10_2','assets/folder10/convover.png')" onmouseout="botonout('btn10_2','assets/folder10/conv.png')"
+                        onmousedown="botondown('btn10_2','assets/folder10/conv.png')" onmouseup="botonout('btn10_2','assets/folder10/conv.png')"
+                        class="botonholderb">
+                        <img src="assets/folder10/conv.png">
+                    </div>
+
+                    <div id="regre_10" onmouseover="botonhover('regre_10','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_10','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_10','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_10','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 60% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <br> <br> <br> <br> <br>
+                        <img style="width:100%" ; src="assets/iconos_terminal/recuadro data.png">
+
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido10_1" style="z-index: -1; padding-left: 8%;width: 70%;top: 16%;left: 17%;position: absolute;display:none;"
+                    src="assets/folder10/displaycom.png">
+                <div id="contenido10_2" style="z-index: -1; padding-left: 8%;width: 70%;top: 16%;left: 17%;position: absolute;display:none;">
+                    <video width="92%" id="videoCOM" autoplay>
+                        <source src="assets/folder10/Secretos_Textos.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+        <div id="screen_limon" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 20%;">
+                    <img style="width: 300%" src="assets/iconos_terminal/titulo limon.png">
+                    <div class="botonholderb">
+
+                    </div>
+                    <div id="btn3_1" onmouseover="botonhover('btn3_1','assets/iconos_terminal/los tengo 2.png')"
+                        onmouseout="botonout('btn3_1','assets/iconos_terminal/los tengo 1.png')" onmousedown="botondown('btn3_1','assets/iconos_terminal/los tengo 1.png')"
+                        onmouseup="botonout('btn3_1','assets/iconos_terminal/los tengo 1.png')" class="botonholderb">
+                        <img src="assets/iconos_terminal/los tengo 1.png">
+                    </div>
+                    <div id="btn3_2" onmouseover="botonhover('btn3_2','assets/iconos_terminal/prioridad 2.png')"
+                        onmouseout="botonout('btn3_2','assets/iconos_terminal/prioridad 1.png')" onmousedown="botondown('btn3_2','assets/iconos_terminal/prioridad 1.png')"
+                        onmouseup="botonout('btn3_2','assets/iconos_terminal/prioridad 1.png')" class="botonholderb">
+                        <img src="assets/iconos_terminal/prioridad 1.png">
+                    </div>
+
+                    <div id="regre_2" onmouseover="botonhover('regre_2','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_2','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_2','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_2','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 100% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <img style="width:100%" ; src="assets/iconos_terminal/recuadro data.png">
+
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido1" style="z-index: -1; padding-left: 8%;width: 90%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-los-tengo.gif">
+                <img class="contenido_screen" id="contenido2" style="z-index: -1; padding-left: 8%;width: 90%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-prioridad.gif">
+            </div>
+        </div>
+        <div id="screen_chimera" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 40%;">
+                    <img style="width: 150%" src="assets/iconos_terminal/titulo chimera.png">
+                    <div class="botonHolderB">
+
+                    </div>
+
+                    <div id="regre_7" onmouseover="botonhover('regre_7','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_7','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_7','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_7','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 100% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <img style="width:100%" ; src="assets/iconos_terminal/PERIODICO FINAL.png">
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido3" style="z-index: -1; padding-left: 26%;width: 72%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-impostor.gif">
+            </div>
+        </div>
+        <div id="screen_8" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 40%;">
+
+                    <div class="botonHolderB">
+
+                    </div>
+
+                    <div id="regre_8" onmouseover="botonhover('regre_8','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_8','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_8','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_8','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 100% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <img style="width:100%" src="assets/files/8.png">
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido3" style="z-index: -1; padding-left: 26%;width: 72%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-impostor.gif">
+            </div>
+        </div>
+        <div id="screen_9" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 20%;">
+
+                    <div class="botonHolderB">
+
+                    </div>
+
+                    <div id="regre_9" onmouseover="botonhover('regre_9','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_9','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_9','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_9','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 100% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_0" onmouseover="botonhover('audio_0','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_0','assets/folder9/play.png')" onmousedown="waveCreator00(1)"
+                                        onmouseup="botonout('audio_0','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer00"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/1.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_1" onmouseover="botonhover('audio_1','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_1','assets/folder9/play.png')" onmousedown="waveCreator01()"
+                                        onmouseup="botonout('audio_1','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer01"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/2.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_2" onmouseover="botonhover('audio_2','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_2','assets/folder9/play.png')" onmousedown="waveCreator02()"
+                                        onmouseup="botonout('audio_2','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer02"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/3.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_3" onmouseover="botonhover('audio_3','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_3','assets/folder9/play.png')" onmousedown="waveCreator03()"
+                                        onmouseup="botonout('audio_3','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer03"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/4.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_4" onmouseover="botonhover('audio_4','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_4','assets/folder9/play.png')" onmousedown="waveCreator04()"
+                                        onmouseup="botonout('audio_4','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer04"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/5.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_5" onmouseover="botonhover('audio_5','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_5','assets/folder9/play.png')" onmousedown="waveCreator05()"
+                                        onmouseup="botonout('audio_5','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer05"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/6.png">
+                    </div>
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width:150px">
+                                    <div id="audio_6" onmouseover="botonhover('audio_6','assets/folder9/playover.png')"
+                                        onmouseout="botonout('audio_6','assets/folder9/play.png')" onmousedown="waveCreator06()"
+                                        onmouseup="botonout('audio_6','assets/folder9/play.png')" class="botonholder"
+                                        style="width: 100% !important;">
+                                        <img style="width:100%" src="assets/folder9/play.png">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="wavesurfer06"></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <img style="width:100%" src="assets/folder9/7.png">
+                    </div>
+
+
+                </div>
+                <img class="contenido_screen" id="contenido3" style="z-index: -1; padding-left: 26%;width: 72%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-impostor.gif">
+            </div>
+        </div>
+        <div id="screen_impostor" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 40%;">
+                    <img style="width: 203%" src="assets/iconos_terminal/titulo impostor.png">
+                    <div class="botonholderb">
+
+                    </div>
+                    <div id="btn4_1" onmouseover="botonhover('btn4_1','assets/iconos_terminal/impostor 2.png')"
+                        onmouseout="botonout('btn4_1','assets/iconos_terminal/impostor 1.png')" onmousedown="botondown('btn4_1','assets/iconos_terminal/impostor 1.png')"
+                        onmouseup="botonout('btn4_1','assets/iconos_terminal/impostor 1.png')" class="botonholder"
+                        style="width: 57% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/impostor 1.png">
+                    </div>
+
+                    <div id="regre_4" onmouseover="botonhover('regre_4','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_4','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_4','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_4','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 57% !important;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;">
+                    <div>
+                        <img style="width:100%" ; src="assets/iconos_terminal/recuadro data.png">
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido3" style="z-index: -1; padding-left: 26%;width: 72%; position: absolute;display:none;"
+                    src="assets/iconos_terminal/glitch-impostor.gif">
+            </div>
+        </div>
+        <div id="screen_bots" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div style="width: 20%; z-index: 10000;">
+                    <img style="width: 262%" src="assets/iconos_terminal/titulo hatbot.png">
+                    <div class="botonholderb" style="z-index: 10000;">
+
+                    </div>
+
+
+                    <div id="regre_5" onmouseover="botonhover('regre_5','assets/iconos_terminal/back mouse over.png')"
+                        onmouseout="botonout('regre_5','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_5','assets/iconos_terminal/back click.png')"
+                        onmouseup="botonout('regre_5','assets/iconos_terminal/back normal.png')" class="botonholder"
+                        style="width: 90% !important;z-index: 10000;">
+                        <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                    </div>
+
+                </div>
+                <div style="width:78%;     padding-top: 10%;">
+                    <div>
+                        <img style="width:100%" ; src="assets/iconos_terminal/recuadro data.png">
+                    </div>
+                </div>
+                <img class="contenido_screen" id="contenido4" style="z-index: -1;      padding-top: 4%; padding-left: 8%;width: 90%; position: absolute;"
+                    src="assets/iconos_terminal/glitch-hatbots.gif">
+                <div style="z-index: 110;padding-top: 35%;padding-left: 17%;width: 31%;position: absolute;">
+                    <img class="contenido_screen" style="width: 100%" onmouseover="showthis('full1')" src="assets/iconos_terminal/glitch-hat-bot-v3.gif">
+                </div>
+                <div style="z-index: 109;padding-top: 30%;padding-left: 52%;width: 28%;position: absolute;">
+                    <img class="contenido_screen" onmouseover="showthis('full2')" style="z-index: 100;width: 100%;" src="assets/iconos_terminal/glitch-hat-bot-v5.gif">
+                </div>
+
+                <div style=" z-index: 120;padding-top: 171px;padding-left: 175px;width: 66%;position: absolute;">
+                    <img id="full1" style="width:100%; z-index: 2000; display:none;" onmouseout="hidethis('full1')"
+                        class="contenido_screen" id="contenido4" src="assets/files/hat bot v3.png">
+                </div>
+                <div style=" z-index: 120;padding-top: 171px;padding-left: 175px;width: 66%;position: absolute;">
+                    <img id="full2" onmouseout="hidethis('full2')" style="width:100%;  z-index: 2000; display:none;"
+                        class="contenido_screen" id="contenido4" src="assets/files/hat bot v5.png">
+                </div>
+
+                <!-- <img style="width:80%" src="assets/files/hat bot v3.png">
+                      <img style="width:80%" src="assets/files/hat bot v5.png"> -->
+            </div>
+        </div>
+        <div id="screen_docs" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div id="regre_3" onmouseover="botonhover('regre_3','assets/iconos_terminal/back mouse over.png')"
+                    onmouseout="botonout('regre_3','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_3','assets/iconos_terminal/back click.png')"
+                    onmouseup="botonout('regre_3','assets/iconos_terminal/back normal.png')" class="botonholder" style="width: 15% !important;">
+                    <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                </div>
+                <div style="width:90%" class="archivoscontainer">
+                    <img style="position: absolute; top:5%; left:0%; width: 30%;" src="assets/files/acta divorcio.png">
+                    <img style="position: absolute; top:10%; left:10%;; width: 30%;" src="assets/files/carta bho.png">
+                    <img style="position: absolute; top:20%; left:30%; width: 30%;" src="assets/files/carta flug.png">
+                    <img style="position: absolute; top:30%; left:10%; width: 30%;" src="assets/files/carta metauro.png">
+                    <img style="position: absolute; top:20%; left:60%; width: 30%;" src="assets/files/carta.png">
+                    <img style="position: absolute; top:32%; left:0%; width: 30%;" src="assets/files/cateo.png">
+                    <img style="position: absolute; top:50%; left:10%; width: 10%;" src="assets/files/cateo2.png">
+                    <img style="position: absolute; top:30%; left:40%; width: 30%;" src="assets/files/d1.png">
+                    <img style="position: absolute; top:10%; left:30%; width: 30%;" src="assets/files/d2.png">
+                    <img style="position: absolute; top:10%; left:30%; width: 30%;" src="assets/files/dedos.png">
+                    <img style="position: absolute; top:20%; left:60%; width: 30%;" src="assets/files/desaparecidos.png">
+                    <img style="position: absolute; top:30%; left:40%; width: 10%;" src="assets/files/evidencia.png">
+                    <img style="position: absolute; top:20%; left:30%; width: 10%;" src="assets/files/evidencia2.png">
+                    <img style="position: absolute; top:30%; left:50%; width: 10%;" src="assets/files/evidencia3.png">
+                    <img style="position: absolute; top:10%; left:50%; width: 30%;" src="assets/files/hospital 1.png">
+                    <img style="position: absolute; top:20%; left:20%; width: 30%;" src="assets/files/hospital 2.png">
+                    <img style="position: absolute; top:30%; left:0%; width: 30%;" src="assets/files/id.png">
+                    <img style="position: absolute; top:15%; left:0%; width: 20%;" src="assets/files/periodico1.png">
+                    <img style="position: absolute; top:10%; left:70%; width: 20%;" src="assets/files/periodico2.png">
+                    <img style="position: absolute; top:20%; left:60%; width: 20%;" src="assets/files/periodico3.png">
+                    <img style="position: absolute; top:30%; left:20%; width: 20%;" src="assets/files/periodico4.png">
+                    <img style="position: absolute; top:30%; left:20%; width: 30%;" src="assets/files/polaroid matauro.png">
+                    <img style="position: absolute; top:20%; left:70%; width: 30%;" src="assets/files/radriografias metauro 2.png">
+                    <img style="position: absolute; top:10%; left:10%; width: 30%;" src="assets/files/radriografias metauro.png">
+                    <img style="position: absolute; top:30%; left:70%; width: 30%;" src="assets/files/sangre.png">
+                </div>
+
+
+            </div>
+        </div>
+        <div id="screen_11" style="display:none;" align="left">
+            <div style=" display: flex;">
+                <div id="regre_11" onmouseover="botonhover('regre_11','assets/iconos_terminal/back mouse over.png')"
+                    onmouseout="botonout('regre_11','assets/iconos_terminal/back normal.png')" onmousedown="botondown('regre_11','assets/iconos_terminal/back click.png')"
+                    onmouseup="botonout('regre_11','assets/iconos_terminal/back normal.png')" class="botonholder" style="width: 15% !important;">
+                    <img style="width:100%" src="assets/iconos_terminal/back normal.png">
+                </div>
+                <div style="width:90%" class="archivoscontainer">
+                    <img style="position: absolute; top:35%; right:0%; width: 30%;" src="assets/entrada_11/e8.png">
+                    <img style="position: absolute; top:15%; left:0%; width: 60%;" src="assets/entrada_11/e1.png">
+                    <img style="position: absolute; top:45%; left:30%; width: 30%;" src="assets/entrada_11/e2.png">
+                    <img style="position: absolute; top:55%; left:40%; width: 30%;" src="assets/entrada_11/e3.png">
+                    <img style="position: absolute; top:15%; left:50%; width: 30%;" src="assets/entrada_11/e4.png">
+                    <img style="position: absolute; top:5%; left:30%; width: 30%;" src="assets/entrada_11/e5.png">
+                    <img style="position: absolute; top:25%; left:20%; width: 30%;" src="assets/entrada_11/e6.png">
+                    <img style="position: absolute; top:35%; left:10%; width: 30%;" src="assets/entrada_11/e7.png">
+                   
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".archivoscontainer img").draggable();
+    </script>
+    <style>
+        .archivoscontainer img {
+            width: 30%;
+        }
+
+        /* glitched  */
+    </style>
+</body>
+
+</html>
