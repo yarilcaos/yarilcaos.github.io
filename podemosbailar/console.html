@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta charset="utf-8" />
+                    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="glitch.js"></script>
+
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122485897-1"></script>
+       <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'UA-122485897-1');
+       </script>
+    </head>
+    <style>
+        @font-face {
+            font-family: consola;
+            src: url("assets/munronarrow.ttf");
+        }
+
+        body{
+            position: absolute;
+            font-family: consola;
+            background-color: #130000;
+            background-image: url("assets/iconos/grid.png");
+            background-size: 100%;
+            background-repeat:repeat;
+            color:#dc8e04;
+            /* animation: text-flicker 3s linear infinite; */
+            /* animation: letter-flicker 2s linear infinite; */
+            /* animation: text-flicker 5s linear infinite; */
+        }
+        .tecla{
+            width: 29%;
+            padding: 1.5%;
+        background-image: url("assets/iconos/btn.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        z-index: 100;
+       
+           /* border: solid 1px blue; @overlord0123698745*/
+        }
+        .tecla :hover{
+            background-image: url("assets/iconos/btn_hover.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .tecla img{
+            width: 80%;
+            padding: 10%;
+            padding-top: 5%;
+            padding-left: 9%;
+        }
+        .seleccionado{
+            background-color: yellow;
+        }
+        #loader{
+            background-color: aquamarine;
+        }
+        .main{
+            display: flex;
+         /*   border: solid 1px black;*/
+            /* max-width:600px; */
+            width: 35%;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding-top: 8%; 
+            padding-right: 10%;
+            /*background-color: white;*/
+        }
+        #borde{
+                position: fixed;
+                top: 0px;
+              
+                width: 100%;
+        }
+        #borde img{
+                width: 100%;
+        }
+
+        #texto_der{
+            /* border: 1px green solid; */
+            position: fixed;
+            height:0%;
+            width: 19%;
+            top: 12%;
+            padding-bottom: 38%;
+            right: 6%;
+            overflow-wrap: break-word;
+            overflow-y: hidden;
+            animation: text-flicker 3s linear infinite;
+              
+        }
+        #texto_izq{
+            /* border: 1px green solid; */
+            position: fixed;
+            height: 0;
+            padding-bottom: 38%;
+            width: 14.2%;
+            top: 22%;
+            left: 3.5%;
+            overflow-wrap: break-word;
+            overflow-y: hidden;
+            animation: text-flicker 5s linear infinite;
+        }
+.movil{
+    display: none;
+}
+        @media screen and (max-width: 1000px)  {
+            body {
+               
+            }
+            .full{
+                display: none;
+            }
+            .movil{
+                display: block;
+            }
+            .main{
+            display: flex;
+      
+            width: 75%;
+            padding-right: 0%;
+            padding-left: 5%;
+         }
+        }
+
+    </style>
+    <script type="text/javascript" src="script.js"></script>
+<body>
+    
+    <div>
+        <div id="loader" align="center" style="width:100%">
+                
+        </div>
+        
+    </div>
+    <div style="width:100%;" id="adornos" > 
+        <div id="borde" class="full" style="animation: text-flicker 30s linear infinite;"><img src="assets/iconos/barra 1.png" /> </div>
+        <div id="borde" class="full" style="animation: text-flicker 28s linear infinite;"><img src="assets/iconos/barra 2.png" /> </div>
+        <div id="borde" class="full" style="animation: text-flicker 23s linear infinite;"><img src="assets/iconos/barra 3.png" /> </div>
+        <div id="borde" class="full" style="animation: text-flicker 20s linear infinite;"><img src="assets/iconos/barra 4.png" /> </div>
+        <div id="borde" class="movil" style="animation: text-flicker 15s linear infinite;"><img src="assets/iconos/barra 5.png" /> </div>
+        <div id="borde" class="movil" style="animation: text-flicker 19s linear infinite;"><img src="assets/iconos/barra 6.png" /> </div>
+        <div id="contador" style="text-align: center;  top: -17px;      width: 98%; position: absolute; ">
+            <p style="animation: text-flicker 30s linear infinite;"> <h1 id="contador_1"> code:b1237-823131-24-231</h2></p>
+        <p style="animation: text-flicker 30s linear infinite;"><h2 id="contador_2"> 213213123 321321 21312312</h1></p>  </div>
+        <div id="texto_der" class="full">
+            <p> 
+                hresult configureaudiostream(
+                    imfsourcereader *preader,   // pointer to the source reader.
+                    imfmediatype **pppcmaudio   // receives the audio format.
+                    )
+                {
+                    imfmediatype *puncompressedaudiotype = null;
+                    imfmediatype *ppartialtype = null;
+                
+                    // select the first audio stream, and deselect all other streams.
+                    hresult hr = preader->setstreamselection(
+                        (dword)mf_source_reader_all_streams, false);
+                
+                    if (succeeded(hr))
+                    {
+                        hr = preader->setstreamselection(
+                            (dword)mf_source_reader_first_audio_stream, true);
+                    }
+                
+                    // create a partial media type that specifies uncompressed pcm audio.
+                    hr = mfcreatemediatype(&ppartialtype);
+                
+                    if (succeeded(hr))
+                    {
+                        hr = ppartialtype->setguid(mf_mt_major_type, mfmediatype_audio);
+                    }
+                
+                    if (succeeded(hr))
+                    {
+                        hr = ppartialtype->setguid(mf_mt_subtype, mfaudioformat_pcm);
+                    }
+                
+                    // set this type on the source reader. the source reader will
+                    // load the necessary decoder.
+                    if (succeeded(hr))
+                    {
+                        hr = preader->setcurrentmediatype(
+                            (dword)mf_source_reader_first_audio_stream,
+                            null, ppartialtype);
+                    }
+                
+                    // get the complete uncompressed format.
+                    if (succeeded(hr))
+                    {
+                        hr = preader->getcurrentmediatype(
+                            (dword)mf_source_reader_first_audio_stream,
+                            &puncompressedaudiotype);
+                    }
+                
+                    // ensure the stream is selected.
+                    if (succeeded(hr))
+                    {
+                        hr = preader->setstreamselection(
+                            (dword)mf_source_reader_first_audio_stream,
+                            true);
+                    }
+                
+                    // return the pcm format to the caller.
+                    if (succeeded(hr))
+                    {
+                        *pppcmaudio = puncompressedaudiotype;
+                        (*pppcmaudio)->addref();
+                    }
+                
+                    saferelease(&puncompressedaudiotype);
+                    saferelease(&ppartialtype);
+                    return hr;
+                }
+            </p>
+        </div>
+        <div id="texto_izq" class="full">
+                <p>
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                    01000001 01100010 01110010 01101001 01100101 01101110 01100100 01101111 00100000 01100011 01100001 01101110 01100001 01101100 00100000 01110011 01100101 01100111 01110101 01110010 01101111 00101100 00100000 01100100 01100101 01100011 01101111 01100100 01101001 01100110 01101001 01100011 01100001 01101110 01100100 01101111 00100000 01101101 01100101 01101110 01110011 01100001 01101010 01100101 00100110 00100000 01110010 01100101 01100100 00100000 01100100 01100101 00100000 01110011 01100101 01100111 01110101 01110010 01101001 01100100 01100001 01100100 00100000 00110111 00110110 00110101 00100000 00110110 00111001 00111001 00100000 01100001 01100011 01100011 01100101 01100100 01101001 01100101 01101110 01100100 01101111 00100110 00100110 01100001 00100000 01100011 01110101 01100001 01101100 01110001 01110101 01101001 01100101 01110010 00100000 01100001 01100111 01100101 01101110 01110100 01100101 00100000 01110010 01100101 01110011 01110100 01100001 01101110 01110100 01100101 00100110 00100110 00100110 00100110 00100110 00100110 00101110 00101110 01000100 01101111 01110011 00100000 01100001 11111010 01101110 00100000 01110000 01110101 01100101 01100100 01100101 01101110 00100000 01100010 01100001 01101001 01101100 01100001 01110010 00101110
+                </p>
+            </div>
+    </div>
+    <div align="center">
+        <div class="main" align="center" id="main">
+            <div class="tecla" id="1" onclick="activado(1)"  onmouseout="test()" style="animation: text-flicker 30s linear infinite;"><img  onmouseover="sonar('12')" src="assets/iconos/flor 1.png" /></div>
+            <div class="tecla"  id="2" onclick="activado(2)"  onmouseout="test()"  style="animation: text-flicker 10s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/box1.png" /></div>
+            <div class="tecla"  id="3" onclick="activado(3)"  onmouseout="test()"  style="animation: text-flicker 12s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/bh1.png" /></div>
+            <div class="tecla" id="4" onclick="activado(4)"  onmouseout="test()"  style="animation: text-flicker 13s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/fetter1.png" /></div>
+            <div class="tecla"  id="5" onclick="activado(5)"  onmouseout="test()"  style="animation: text-flicker 4.5s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/paw1.png" /></div>
+            <div class="tecla"  id="6" onclick="activado(6)"  onmouseout="test()"  style="animation: text-flicker 7s linear infinite;"><img  onmouseover="sonar('12')" src="assets/iconos/baw1.png" /></div>
+            <div class="tecla"  id="7" onclick="activado(7)"  onmouseout="test()"  style="animation: text-flicker 8s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/hair 1.png" /></div>
+            <div class="tecla" id="8" onclick="activado(8)"  onmouseout="test()"  style="animation: text-flicker 9s linear infinite;"><img onmouseover="sonar('12')" src="assets/iconos/flug1.png" /></div>
+            <div class="tecla" id="9" onclick="activado(9)"  onmouseout="test()"  style="animation: text-flicker 11s linear infinite;"><img  onmouseover="sonar('12')" src="assets/iconos/gorro1.png" /></div>
+            
+        </div>
+        <div id="exito" style="display:none">
+            <div>
+                  
+            </div>
+        </div>
+      
+    </div>
+
+    <style>
+        #texto_der {
+            
+            overflow: hidden;
+            
+        }
+        #texto_der p {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         margin: 0;
+         line-height: 50px;
+         text-align: center;
+         /* starting position */
+         -moz-transform:translatey(100%);
+         -webkit-transform:translatey(100%);	
+         transform:translatey(100%);
+         /* apply animation to this element */	
+         -moz-animation: scroll-left 30s linear infinite;
+         -webkit-animation: scroll-left 30s linear infinite;
+         animation: scroll-left 30s linear infinite;
+        }
+        /* move it (define the animation) */
+        @-moz-keyframes scroll-left {
+         0%   { -moz-transform: translatey(100%); }
+         100% { -moz-transform: translatey(-100%); }
+        }
+        @-webkit-keyframes scroll-left {
+         0%   { -webkit-transform: translatey(100%); }
+         100% { -webkit-transform: translatey(-100%); }
+        }
+        @keyframes scroll-left {
+         0%   { 
+         -moz-transform: translatey(100%); /* browser bug fix */
+         -webkit-transform: translatey(100%); /* browser bug fix */
+         transform: translatey(100%); 		
+         }
+         100% { 
+         -moz-transform: translatey(-100%); /* browser bug fix */
+         -webkit-transform: translatey(-100%); /* browser bug fix */
+         transform: translatey(-100%); 
+         }
+        }
+        #texto_izq p {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         margin: 0;
+         line-height: 50px;
+         text-align: center;
+         /* starting position */
+         -moz-transform:translatey(100%);
+         -webkit-transform:translatey(100%);	
+         transform:translatey(100%);
+         /* apply animation to this element */	
+         -moz-animation: scroll-left 30 linear infinite;
+         -webkit-animation: scroll-left 30s linear infinite;
+         animation: scroll-left 30s linear infinite;
+        }
+        /* move it (define the animation) */
+        @-moz-keyframes scroll-left {
+         0%   { -moz-transform: translatey(100%); }
+         100% { -moz-transform: translatey(-100%); }
+        }
+        @-webkit-keyframes scroll-left {
+         0%   { -webkit-transform: translatey(100%); }
+         100% { -webkit-transform: translatey(-100%); }
+        }
+        @keyframes scroll-left {
+         0%   { 
+         -moz-transform: translatey(100%); /* browser bug fix */
+         -webkit-transform: translatey(100%); /* browser bug fix */
+         transform: translatey(100%); 		
+         }
+         100% { 
+         -moz-transform: translatey(-100%); /* browser bug fix */
+         -webkit-transform: translatey(-100%); /* browser bug fix */
+         transform: translatey(-100%); 
+         }
+        }
+        </style>
+        <style>
+            
+@keyframes text-flicker {
+  0% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  2% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  8% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  9% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  12% {
+    opacity:0.1;
+    text-shadow: 0px 0px rgba(242, 22, 22, 1);
+  }
+  20% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  25% {
+    opacity:0.3;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  30% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  70% {
+    opacity:0.7;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  72% {
+    opacity:0.2;
+    text-shadow:0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  77% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  100% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity:0.1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  2% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  4% {
+    opacity:0.1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  
+  8% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  70% {
+    opacity:0.7;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  100% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+}
+
+@keyframes letter-flicker {
+  0% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  2% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  4% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  
+  19% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  21% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  23% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  80% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  83% {
+    opacity:0.4;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  87% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+}
+        </style>
+  <script>
+      
+  </script>
+</body>
+</html>

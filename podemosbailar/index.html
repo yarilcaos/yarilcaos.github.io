@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta charset="utf-8" />
+       
+
+            <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122485897-1"></script>
+       <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'UA-122485897-1');
+       </script>
+    </head>
+    <style>
+        @font-face {
+            font-family: consola;
+            src: url("assets/munronarrow.ttf");
+        }
+
+        body{
+            font-family: consola;
+            background-color: black;
+          
+            background-size: 100%;
+            background-repeat:repeat;
+            color:#dc8e04;
+            
+        }
+        #secreto{
+            position: absolute;
+            top: 0;
+            background-image: url("");
+            background-image: url("assets/iconos_index/boton normal.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            z-index: 100;
+           /* border: solid 1px blue; @overlord0123698745*/
+        }
+        #secreto :hover{
+            background-image: url("assets/iconos_index/boton mouse over.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+       
+       
+    </style>
+    <script type="text/javascript" src="scriptindex.js"></script>
+<body>
+    <div id="main" align="center" style="padding-top: 5%">
+<img src="assets/test.gif" style="max-width:900px; width:100%;">
+    </div>
+     <div id="secreto" style="width:100px;height:130px; display:none;">
+         <a href="console.html">
+            <div style="width:100px;height:130px;"> </div>
+         </a>
+        
+     </div>
+     <script>
+          $(document).ready(function(){
+            var audio = new Audio('assets/iseeall.mp3');
+            audio.loop=true;
+            audio.play();
+            
+          });
+     </script>
+    </body>
+</html>
